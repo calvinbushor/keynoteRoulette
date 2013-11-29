@@ -18,9 +18,11 @@ fs.readdirSync(modelsPath).forEach(function (file) {
 
 // Populate empty DB with dummy data
 require('./lib/db/dummydata');
+require('./lib/db/dummyImages');
 
 // Controllers
-var api = require('./lib/controllers/api');
+var api   = require('./lib/controllers/api');
+var forms = require('./lib/controllers/forms');
 
 // Express Configuration
 app.configure(function(){
@@ -42,7 +44,12 @@ app.configure('production', function(){
 });
 
 // Routes
-app.get('/api/awesomeThings', api.awesomeThings);
+// app.get('/api/awesomeThings', api.awesomeThings);
+// app.get('/api/addAwesomeThings', api.addAwesomeThings);
+
+app.get('/api/images', api.get_images);
+app.post('/forms/images', forms.post_images);
+app.post('/api/images', api.post_images);
 
 // Start server
 var port = process.env.PORT || 3000;
