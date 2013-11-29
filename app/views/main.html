@@ -1,3 +1,7 @@
+<style>
+  img { width: 100%; }
+</style>
+
 <div class="header">
   <ul class="nav nav-pills pull-right">
     <li class="active"><a href="#">Home</a></li>
@@ -14,6 +18,14 @@
 </div>
 
 <div class="row marketing">
+  <h2>Upload yo files!</h2>
+  <form action="/forms/images" method="post" enctype="multipart/form-data">
+    <input type="file" name="imageUpload">
+    <input type="submit" value="Upload">
+  </form>
+</div>
+
+<div class="row marketing">
   <div ng-repeat="thing in awesomeThings">
       <h4>{{thing.name}}</h4>
       <p>{{thing.info}}</p>
@@ -22,4 +34,11 @@
 
 <div class="footer">
   <p>♥ from the Yeoman team</p>
+</div>
+
+<div class="row marketing">
+  <div ng-repeat="image in images">
+      <img src="{{image.path}}"/>
+      <p>Tags: {{image.tags}}</p>
+  </div>
 </div>
