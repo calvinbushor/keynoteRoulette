@@ -2,7 +2,7 @@
 
 angular.module('boostrapszApp')
   .controller('MainCtrl', function ($scope, $http) {
-    $http.get('/api/images').success(function(images) {
+    $http.get('/api/images?tags=fast').success(function(images) {
       $scope.images = images;
     });
   });
