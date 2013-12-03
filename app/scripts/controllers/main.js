@@ -1,10 +1,6 @@
 'use strict';
 
 angular.module('boostrapszApp')
-<<<<<<< HEAD
-  .controller('MainCtrl', function ($scope, $http) {
-    $http.get('/api/images?tags=fast').success(function(images) {
-=======
   .controller('MainCtrl', function ($scope, imageStorage) {
     $scope.themes = [
       'beige',
@@ -21,7 +17,6 @@ angular.module('boostrapszApp')
     $scope.theme = 'default';
 
     imageStorage.get().success(function(images) {
->>>>>>> yay, presentations work!
       $scope.images = images;
     });
   })
