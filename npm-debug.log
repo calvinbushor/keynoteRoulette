@@ -1,0 +1,49 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'angulargenerator',
+1 verbose cli   '-g' ]
+2 info using npm@1.3.14
+3 info using node@v0.8.2
+4 verbose cache add [ 'angulargenerator', null ]
+5 verbose cache add name=undefined spec="angulargenerator" args=["angulargenerator",null]
+6 verbose parsed url { pathname: 'angulargenerator',
+6 verbose parsed url   path: 'angulargenerator',
+6 verbose parsed url   href: 'angulargenerator' }
+7 silly lockFile 64852234-angulargenerator angulargenerator
+8 verbose lock angulargenerator /Users/dsupplee/.npm/64852234-angulargenerator.lock
+9 silly lockFile 64852234-angulargenerator angulargenerator
+10 silly lockFile 64852234-angulargenerator angulargenerator
+11 verbose addNamed [ 'angulargenerator', '' ]
+12 verbose addNamed [ null, '*' ]
+13 silly lockFile ae92793a-angulargenerator angulargenerator@
+14 verbose lock angulargenerator@ /Users/dsupplee/.npm/ae92793a-angulargenerator.lock
+15 silly addNameRange { name: 'angulargenerator', range: '*', hasData: false }
+16 verbose url raw angulargenerator
+17 verbose url resolving [ 'https://registry.npmjs.org/', './angulargenerator' ]
+18 verbose url resolved https://registry.npmjs.org/angulargenerator
+19 info trying registry request attempt 1 at 11:24:16
+20 http GET https://registry.npmjs.org/angulargenerator
+21 http 404 https://registry.npmjs.org/angulargenerator
+22 silly registry.get cb [ 404,
+22 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R15B03)',
+22 silly registry.get     date: 'Mon, 02 Dec 2013 16:24:16 GMT',
+22 silly registry.get     'content-type': 'application/json',
+22 silly registry.get     'cache-control': 'must-revalidate',
+22 silly registry.get     'content-length': '52',
+22 silly registry.get     connection: 'Keep-Alive' } ]
+23 silly lockFile ae92793a-angulargenerator angulargenerator@
+24 silly lockFile ae92793a-angulargenerator angulargenerator@
+25 error 404 'angulargenerator' is not in the npm registry.
+25 error 404 You should bug the author to publish it
+25 error 404
+25 error 404 Note that you can also install from a
+25 error 404 tarball, folder, or http url, or git url.
+26 error System Darwin 12.2.0
+27 error command "node" "/usr/local/bin/npm" "install" "angulargenerator" "-g"
+28 error cwd /Users/dsupplee/dev/heroku/keynoteroulette
+29 error node -v v0.8.2
+30 error npm -v 1.3.14
+31 error code E404
+32 verbose exit [ 1, true ]

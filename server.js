@@ -47,6 +47,16 @@ app.configure('production', function(){
 // app.get('/api/awesomeThings', api.awesomeThings);
 // app.get('/api/addAwesomeThings', api.addAwesomeThings);
 
+var frontEnd = function(req, res) {
+  fs.readFile('app/index.html', 'utf8', function(err, text){
+    res.end(text);
+  });
+};
+
+app.get('/', frontEnd);
+app.get('/presentation', frontEnd);
+app.get('/presentation/:theme', frontEnd);
+
 app.get('/api/images', api.get_images);
 app.post('/forms/images', forms.post_images);
 app.post('/api/images', api.post_images);
