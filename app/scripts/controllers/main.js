@@ -14,14 +14,21 @@ angular.module('boostrapszApp')
       'solarized'
     ];
 
-    $scope.theme = 'default';
+    $scope.limits = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-    imageStorage.get().success(function(images) {
+    $scope.theme = 'default';
+    $scope.limit = 5;
+
+    imageStorage.get(100).success(function(images) {
       $scope.images = images;
     });
   })
-  .controller('PresentationCtrl', function ($scope, $routeParams) {
+  .controller('PresentationCtrl', function ($scope, $routeParams, imageStorage) {
     $('body').addClass('presentation');
+
+    imageStorage.get($routeParams.limit || null).success(function(images) {
+      $scope.images = images;
+    });
 
     $scope.theme = $routeParams.theme || 'default';
 

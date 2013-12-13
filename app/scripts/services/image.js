@@ -3,8 +3,9 @@
 angular.module('boostrapszApp')
   .factory('imageStorage', function ($http) {
     return {
-      get: function () {
-        return $http.get('api/images').success(function(images) {
+      get: function (limit) {
+        var route = limit ? 'api/images?limit=' + limit : 'api/images';
+        return $http.get(route).success(function(images) {
           return images;
         });
       }

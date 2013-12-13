@@ -7,24 +7,27 @@ angular.module('boostrapszApp')
       return {
         restrict: 'E',
         link: function(scope, element){
-          imageStorage.get().success(function(images) {
-            var container = $("<article>");
+          scope.$watch('images', function() {
+            // there is a better way
+            if (scope.images) {
+              var container = $("<article>");
 
-            container.append($("<section>hi</section>"));
+              container.append($("<section>hi</section>"));
 
-            images.forEach(function (image) {
-              container.append($("<section><img src=\"" + image.path + "\"></section>"));
-            });
+              scope.images.forEach(function (image) {
+                container.append($("<section><img src=\"" + image.path + "\"></section>"));
+              });
 
-            element[0].outerHTML = container.html();
+              element[0].outerHTML = container.html();
 
-            Reveal.initialize({
-              width: '100%',
-              height: '100%',
-              controls: true,
-              touch: true,
-              history: false
-            });
+              Reveal.initialize({
+                width: '100%',
+                height: '100%',
+                controls: true,
+                touch: true,
+                history: false
+              });
+            }
           });
         }
       }

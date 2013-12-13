@@ -1,21 +1,31 @@
-<style>
-  img { width: 100%; }
-</style>
-
 <div class="header">
-  <h3 class="text-muted">keynote roulette</h3>
+  <img src="/images/logo.png" />
 </div>
 
 <div class="jumbotron">
-  <h1>wow apples</h1>
-  <select
-    ng-model="theme"
-    ng-options="label for label in themes">
-  </select>
-  <p><a class="btn btn-lg btn-success" href="/presentation/{{theme}}">view your thing!</a></p>
+  <div class="row">
+    <div class="col-md-7">
+      <h1>Welcome to <span class="noteworthy">Keynote Roulette.</span></h1>
+
+       This ain't yo momma's keynote presentation. This is where men are made.
+    </div>
+    <div class="col-md-5 text-center">
+      <label>Select a theme:</label>
+      <select
+        ng-model="theme"
+        ng-options="label for label in themes">
+      </select>
+      <label>Select the number of slides:</label>
+      <select
+        ng-model="limit"
+        ng-options="label for label in limits">
+      </select>
+      <p><a class="btn btn-lg btn-success" href="/presentation/{{theme}}/{{limit}}">Show us what you've got</a></p>
+    </div>
+  </div>
 </div>
 
-<div class="row marketing">
+<div class="upload">
   <h2>Upload yo files!</h2>
   <form action="/forms/images" method="post" enctype="multipart/form-data">
     <input type="file" name="imageUpload">
@@ -24,13 +34,8 @@
   </form>
 </div>
 
-<div class="row marketing">
-  <div ng-repeat="image in images">
-      <img ng-src="{{image.path}}"/>
-      <p>Tags: {{image.tags}}</p>
-  </div>
-</div>
-
-<div class="footer">
-  <p>♥ from the Yeoman team</p>
+<div masonry column-width="250" class="masonry">
+    <div class="masonry-brick" ng-repeat="image in images">
+        <img ng-src="{{image.path}}" alt="{{image.tags}}">
+    </div>
 </div>

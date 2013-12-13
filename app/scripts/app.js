@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('boostrapszApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute'])
+angular.module('boostrapszApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute', 'wu.masonry'])
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
@@ -12,6 +12,10 @@ angular.module('boostrapszApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRou
         controller: 'PresentationCtrl'
       })
       .when('/presentation/:theme', {
+        templateUrl: 'views/presentation.html',
+        controller: 'PresentationCtrl'
+      })
+      .when('/presentation/:theme/:limit', {
         templateUrl: 'views/presentation.html',
         controller: 'PresentationCtrl'
       })
