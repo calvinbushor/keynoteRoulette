@@ -26,7 +26,7 @@ GetGoal.prototype.noun = function() {
 GetGoal.prototype.generate = function() {
   var goal, that = this;
 
-  goal = 'Sell the idea of a new <b style="color: yellow; text-shadow: 1px 1px 2px #000;">' + that.noun() + '</b>.';
+  goal = 'Sell the idea of a new <b style="color: yellow; text-shadow: 1px 1px 2px #000;">' + that.noun() + '</b> using the images provided. Use arrows to navigate.';
 
   return goal;
 }
@@ -45,7 +45,7 @@ angular.module('boostrapszApp')
 
               var goal = new GetGoal();
 
-              container.append($("<section><p style='margin: 0 auto; width: 70%;'>" + goal.generate() + "</p></section>"));
+              container.append($("<section><h1>Your Objective:</h1><br><p style='margin: 0 auto; width: 70%;'>" + goal.generate() + "</p></section>"));
 
               scope.images.forEach(function (image) {
                 container.append($("<section><img src=\"" + image.path + "\"></section>"));
