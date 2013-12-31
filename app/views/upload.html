@@ -1,0 +1,14 @@
+<div class="upload">
+  <h2>Upload yo files!</h2>
+  <form action="/forms/images" method="post" enctype="multipart/form-data">
+    <input type="file" name="imageUpload">
+    <input type="text" name="tags">
+    <input type="submit" value="Upload">
+  </form>
+</div>
+
+<div masonry column-width="250" class="masonry">
+    <div class="masonry-brick" ng-repeat="image in images">
+        <img ng-src="{{image.path}}" alt="{{image.tags}}">
+    </div>
+</div>

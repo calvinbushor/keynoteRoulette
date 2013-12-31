@@ -23,6 +23,14 @@ angular.module('boostrapszApp')
       $scope.images = images;
     });
   })
+  .controller('UploadCtrl', function ($scope, $routeParams, imageStorage) {
+    imageStorage.get(100).success(function(images) {
+      $scope.images = images;
+    });
+  })
+  .controller('UploadAuthCtrl', function ($scope, $routeParams, imageStorage) {
+
+  })
   .controller('PresentationCtrl', function ($scope, $routeParams, imageStorage) {
     $('body').addClass('presentation');
 

@@ -19,6 +19,14 @@ angular.module('boostrapszApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRou
         templateUrl: 'views/presentation.html',
         controller: 'PresentationCtrl'
       })
+      .when('/upload', {
+        templateUrl: 'views/upload.html',
+        controller: 'UploadCtrl'
+      })
+      .when('/upload-auth', {
+        templateUrl: 'views/upload-auth.html',
+        controller: 'UploadAuthCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

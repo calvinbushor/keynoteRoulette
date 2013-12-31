@@ -27,9 +27,11 @@ var forms = require('./lib/controllers/forms');
 // Express Configuration
 app.configure(function(){
 	app.use(express.logger('dev'));
-	app.use(express.bodyParser());
-	app.use(express.methodOverride());
-	app.use(app.router);
+	app.use(express.bodyParser());	
+  app.use(express.cookieParser());
+  app.use(express.session({secret: "This is a secret"}));
+  app.use(express.methodOverride());
+  app.use(app.router);
 });
 
 app.configure('development', function(){
@@ -49,8 +51,29 @@ var frontEnd = function(req, res) {
   });
 };
 
+var checkCanUpload = function(req, res, next) {
+  if ( 'authenticated' !== req.session['superSecurePassword'] ) {
+    res.redirect('/upload-auth');
+  } else {
+    next();
+  }
+}
+
+var uploadAuth = function(req, res) {
+  var body = req.body;
+
+  if ( '8===D~~' === body['superSecurePassword'] ) {
+    req.session['superSecurePassword'] = 'authenticated';
+    res.redirect('/upload');
+  } else {
+    res.redirect('/upload-auth?error=AhAhAhSayTheMagicWord');
+  }
+}
+
 // Routes
 app.get('/', frontEnd);
+app.get('/upload', checkCanUpload, frontEnd);
+app.get('/upload-auth', frontEnd);
 app.get('/presentation', frontEnd);
 app.get('/presentation/:theme', frontEnd);
 app.get('/presentation/:theme/:limit', frontEnd);
@@ -58,6 +81,8 @@ app.get('/api/images', api.get_images);
 
 app.post('/forms/images', forms.post_images);
 app.post('/api/images', api.post_images);
+
+app.post('/upload-auth', uploadAuth);
 
 // Start server
 var port = process.env.PORT || 3000;
