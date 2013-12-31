@@ -26,7 +26,7 @@ angular.module('boostrapszApp')
   .controller('PresentationCtrl', function ($scope, $routeParams, imageStorage) {
     $('body').addClass('presentation');
 
-    imageStorage.get($routeParams.limit || null).success(function(images) {
+    imageStorage.getRandom($routeParams.limit || null).success(function(images) {
       $scope.images = images;
     });
 
