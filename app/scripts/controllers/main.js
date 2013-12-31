@@ -31,6 +31,7 @@ angular.module('boostrapszApp')
     });
 
     $scope.theme = $routeParams.theme || 'default';
+    $scope.limit = $routeParams.limit;
 
     $scope.$on('$destroy', function () {
       $('body').removeClass('presentation');
